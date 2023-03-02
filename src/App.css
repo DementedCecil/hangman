@@ -1,3 +1,4 @@
+/* Color Variables */
 :root {
     --color-primary: hsl(233, 72%, 39%);
     --color-neutral: hsl(0, 0%, 65%);
@@ -5,6 +6,7 @@
     --color-fail: hsl(0, 80%, 27%);
 }
 
+/* General Stylings and Layout */
 .App {
     display: flex;
     flex-direction: column;
@@ -13,11 +15,34 @@
     min-height: 100vh;
 }
 
+h1 {
+    margin: 4rem 0 1rem;
+}
+
 button {
     border: none;
     background-color: transparent;
 }
 
+.btn {
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--color-neutral);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+}
+
+.bold {
+    font-weight: 800;
+}
+
+/* Components and layout areas */
 .header {
     display: flex;
     justify-content: space-between;
@@ -28,6 +53,7 @@ button {
     margin: 1rem;
 }
 
+/* Help icon displays a question mark in the top right corner */
 .help {
     height: 1.5rem;
     width: 1.5rem;
@@ -46,24 +72,7 @@ button {
     background-color: var(--color-primary);
 }
 
-h1 {
-    margin: 4rem 0 1rem;
-}
-
-.btn {
-    border: none;
-    border-radius: 0.25rem;
-    background-color: var(--color-neutral);
-    color: white;
-    padding: 0.5rem 1.25rem;
-    font-weight: 800;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: var(--color-primary);
-}
-
+/* For the word to be found */
 .word-area {
     display: flex;
     justify-content: center;
@@ -71,6 +80,7 @@ h1 {
     margin-block: 2rem;
 }
 
+/* This is for each individual letter space */
 .word-space {
     display: flex;
     justify-content: center;
@@ -82,6 +92,7 @@ h1 {
     border-bottom: 1px solid black;
 }
 
+/* Displays a full alphabetical onscreen keyboard */
 .keyboard-area {
     margin: 1rem auto;
     display: grid;
@@ -104,6 +115,7 @@ h1 {
     background-color: hsl(0, 0%, 84%);
 }
 
+/* Colors for correctly and incorrectly guessed letters */
 .success, .success:hover {
     background-color: var(--color-success);
     color: white;
@@ -114,14 +126,23 @@ h1 {
     color: white;
 }
 
+/* Positioning for all of the keyboard keys
+  The keyboard is generated through JavaScript
+  A CSS Grid is used with 20 columns, for each key to use
+  two columns, and this also allows the middle and bottom rows
+  to be offset*/
+
+/* Positions first 10 characters on the top row */
 .row-1 {
     grid-row: 1 / 2;
 }
 
+/* Pushes 11th character onwards to row 2 */
 .key:nth-child(11) {
     grid-column: 2 / 4;
 }
 
+/* Pushes the last 7 characters to line three */
 .key:nth-child(20) { grid-column: 3 / 5; }
 .key:nth-child(21) { grid-column: 5 / 7; }
 .key:nth-child(22) { grid-column: 7 / 9; }
@@ -138,14 +159,12 @@ h1 {
     grid-row: 3 / 4;
 }
 
+/* For the countdown for tries remaining */
 .count {
     text-align: center;
 }
 
-.hidden {
-    display: none;
-}
-
+/* Used by the Won / Lost alert, along with for the help text */
 .modal {
     position: fixed;
     height: 30vh;
@@ -154,16 +173,21 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: hsla(0, 0%, 100%, 0.9);
     color: black;
     box-shadow: 0 0 35px 8px hsl(0, 0%, 90%);
 }
 
+/* Specific to the help text modal */
 .help-modal {
     height: 80vh;
     width: 100vw;
     top: 10vh;
     left: 0;
+    /* Modal is positioned offscreen, and brought in by clicking
+    the question mark
+    Clicking the question mark again, or anywhere inside the modal,
+    will clear it from the screen */
     transform: translateY(100vh);
     transition: transform 0.5s ease;
 }
@@ -172,11 +196,8 @@ h1 {
     padding: 0 3rem;
 }
 
+/* This toggles the class to bring in the help text */
 .help-modal-active {
     transform: translateY(0);
     transition: transform 0.5s ease;
-}
-
-.bold {
-    font-weight: 800;
 }

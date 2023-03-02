@@ -1,3 +1,5 @@
+// Used this word list rather than a text file
+// This word list is from: https://github.com/bevacqua/correcthorse/blob/master/wordlist.json
 const wordList = [
     "a",
     "ability",

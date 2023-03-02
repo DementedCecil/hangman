@@ -1,5 +1,7 @@
 function HelpText(props) {
     return (
+        // Help text displayed when the question mark icon is clicked
+        // Help text disappears if question mark clicked again, or modal is clicked
         <div className={'modal help-modal ' + props.className}>
             <h3>Hangman - Rules</h3>
             <p>Hangman is a very simple game to play.  A random word has been selected.  You need to guess that word.</p>
