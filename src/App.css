@@ -1,38 +1,182 @@
+:root {
+    --color-primary: hsl(233, 72%, 39%);
+    --color-neutral: hsl(0, 0%, 65%);
+    --color-success: hsl(132, 89%, 24%);
+    --color-fail: hsl(0, 80%, 27%);
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+    border: none;
+    background-color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    position: fixed;
+    top: 0;
+    margin: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.help {
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 1px solid var(--color-neutral);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.help:hover {
+    background-color: var(--color-primary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+    margin: 4rem 0 1rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--color-neutral);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+}
+
+.word-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2rem;
+}
+
+.word-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 0.5rem;
+    padding: 0.5rem;
+    min-height: 1rem;
+    min-width: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.keyboard-area {
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.key {
+    margin: 0.25rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    border: 1px solid darkgray;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    grid-column: span 2;
+}
+
+.key:hover {
+    background-color: hsl(0, 0%, 84%);
+}
+
+.success, .success:hover {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.fail, .fail:hover {
+    background-color: var(--color-fail);
+    color: white;
+}
+
+.row-1 {
+    grid-row: 1 / 2;
+}
+
+.key:nth-child(11) {
+    grid-column: 2 / 4;
+}
+
+.key:nth-child(20) { grid-column: 3 / 5; }
+.key:nth-child(21) { grid-column: 5 / 7; }
+.key:nth-child(22) { grid-column: 7 / 9; }
+.key:nth-child(23) { grid-column: 9 / 11; }
+.key:nth-child(24) { grid-column: 11 / 13; }
+.key:nth-child(25) { grid-column: 13 / 15; }
+.key:nth-child(26) { grid-column: 15 / 17; }
+
+.row-2 {
+    grid-row: 2 / 3;
+}
+
+.row-3 {
+    grid-row: 3 / 4;
+}
+
+.count {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    height: 30vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 35px 8px hsl(0, 0%, 90%);
+}
+
+.help-modal {
+    height: 80vh;
+    width: 100vw;
+    top: 10vh;
+    left: 0;
+    transform: translateY(100vh);
+    transition: transform 0.5s ease;
+}
+
+.help-modal > p {
+    padding: 0 3rem;
+}
+
+.help-modal-active {
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+}
+
+.bold {
+    font-weight: 800;
 }
